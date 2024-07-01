@@ -1,5 +1,4 @@
 package menu;
-import authentication.Signup;
 
 import java.util.Scanner;
 import java.io.Console;

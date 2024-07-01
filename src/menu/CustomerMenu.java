@@ -1,6 +1,6 @@
 package menu;
 
-import authentication.Signup;
+import controllers.authentication.Signup;
 
 import java.util.Scanner;
 
@@ -57,6 +57,7 @@ public class CustomerMenu {
     }
 
     public static void signup() {
+
         System.out.println("Fill the details");
         System.out.println("Name: ");
         Scanner s1 = new Scanner(System.in);
@@ -79,6 +80,7 @@ public class CustomerMenu {
         System.out.println("Password: ");
         Scanner s7 = new Scanner(System.in);
         String password = s5.nextLine();
-        Signup sign = new Signup(name, mobileNumber, age, gender, email, username, password);
+        Signup sign = new Signup(username, password, name, mobileNumber, gender, age, email);
+        sign.signup();
     }
 }

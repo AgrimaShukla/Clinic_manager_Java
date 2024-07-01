@@ -1,4 +1,4 @@
-package authentication;
+package controllers.authentication;
 
 import dbutils.UserDAO;
 

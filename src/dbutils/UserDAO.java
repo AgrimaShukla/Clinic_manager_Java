@@ -2,19 +2,18 @@ package dbutils;
 
 import java.sql.*;
 import java.util.UUID;
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.PBEKeySpec;
-import java.security.spec.KeySpec;
-import java.util.Base64;
+import io.github.cdimascio.dotenv.Dotenv;
+
 
 public class UserDAO {
 
 
     public static Connection connection() throws Exception {
-        String url = "jdbc:mysql://localhost:3306/clinic_manager";
-        String userName = "root";
-        String password = "!2QWERTYuiop";
-        Connection conn = DriverManager.getConnection(url, userName, password);
+        Dotenv dt = Dotenv.load();
+        String URL = dt.get("DB_URL");
+        String USERNAME = dt.get("DB_USERNAME");
+        String PASSWORD = dt.get("DB_PASSWORD");
+        Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
         return conn;
 
     }
