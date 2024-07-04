@@ -16,11 +16,7 @@ public class DatabaseConnection {
             String URL = dt.get("DB_URL");
             String USERNAME = dt.get("DB_USERNAME");
             String PASSWORD = dt.get("DB_PASSWORD");
-            System.out.println(URL+ USERNAME + PASSWORD);
             this.conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-//            PreparedStatement stmt = conn.prepareStatement("INSERT INTO user VALUES ('U_1234567','Agrima Shukla', '8938292929', 'female', 22, 'agrcom')");
-//            stmt.execute();
-//            System.out.println(this.conn);
         }
         catch(Exception e) {
             System.out.println(e);

@@ -24,7 +24,6 @@ public class Signup {
 
     public boolean signup () {
         try {
-            System.out.println("hiiiii");
             UserHandler.signup(username, password, name, mobileNumber, gender, age, email);
             return true;
         }

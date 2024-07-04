@@ -17,4 +17,28 @@ public class User {
         this.age = age;
         this.email = email;
     }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getMobile_number() {
+        return mobile_number;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getEmail() {
+        return email;
+    }
 }

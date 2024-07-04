@@ -1,13 +1,18 @@
-package menu;
+package view.menu;
 
 import controllers.authentication.Signup;
+import view.admin.ViewAllDoctor;
+import view.customer.AddAppointment;
 
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class CustomerMenu {
 
     public static void displayMenu() {
-        System.out.println("Choose one of the options:\n1) Doctors list\n2)Appointment Menu\n3) Exit");
+
+        System.out.println("Choose one of the options:\n1) Doctors list\n2) Appointment Menu\n3) Exit");
 
         while(true) {
             System.out.println("Enter: ");
@@ -15,22 +20,21 @@ public class CustomerMenu {
             int choice = sc.nextInt();
             switch (choice) {
                 case 1:
+                    ViewAllDoctor.ViewDoctor();
                     break;
                 case 2:
                     appointmentMenu();
                     break;
                 case 3:
-                    System.exit(1);
+                    return;
                 default:
                     System.out.println("Invalid choice");
-                    continue;
             }
-            return;
         }
     }
 
     public static void appointmentMenu() {
-        System.out.println("Choose one of the options:\n1) Book Appointment\n2)Cancel appointment\n3) View Appointments\n4) Back\n5) Exit");
+        System.out.println("Choose one of the options:\n1) Book Appointment\n2) Cancel appointment\n3) View Appointments\n4) Back\n5) Exit");
 
         while (true) {
             System.out.println("Enter: ");
@@ -38,6 +42,7 @@ public class CustomerMenu {
             int choice = sc.nextInt();
             switch (choice) {
                 case 1:
+                    AddAppointment.addAppointment();
                     break;
                 case 2:
                     break;
@@ -49,38 +54,30 @@ public class CustomerMenu {
                     System.exit(1);
                 default:
                     System.out.println("Invalid choice");
-                    continue;
             }
-
-            return;
         }
     }
 
     public static void signup() {
 
         System.out.println("Fill the details");
-        System.out.println("Name: ");
         Scanner s1 = new Scanner(System.in);
-        String name = s1.nextLine();
+        System.out.println("Name: ");
+        String name = s1.next();
         System.out.println("Mobile Number: ");
-        Scanner s2 = new Scanner(System.in);
-        String mobileNumber = s2.nextLine();
+        String mobileNumber = s1.next();
         System.out.println("Age: ");
-        Scanner s3 = new Scanner(System.in);
-        int age = s3.nextInt();
+        int age = s1.nextInt();
         System.out.println("Gender: ");
-        Scanner s4 = new Scanner(System.in);
-        String gender = s4.nextLine();
+        String gender = s1.next();
         System.out.println("Email: ");
-        Scanner s5 = new Scanner(System.in);
-        String email = s5.nextLine();
+        String email = s1.next();
         System.out.println("Username: ");
-        Scanner s6 = new Scanner(System.in);
-        String username = s5.nextLine();
+        String username = s1.next();
         System.out.println("Password: ");
-        Scanner s7 = new Scanner(System.in);
-        String password = s5.nextLine();
+        String password = s1.next();
         Signup sign = new Signup(username, password, name, mobileNumber, gender, age, email);
+
         sign.signup();
     }
 }
