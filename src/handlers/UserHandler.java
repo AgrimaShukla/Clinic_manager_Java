@@ -24,7 +24,6 @@ public class UserHandler {
         ResultSet rs = stmt.executeQuery();
         rs.next();
 
-        String storedUsername = rs.getString("username");
         String storedPassword = rs.getString("password");
         byte[] salt = rs.getBytes("salt");
         role = rs.getString("role");

@@ -6,19 +6,17 @@ import handlers.UserHandler;
 import models.Appointment;
 import view.admin.ViewAllDoctor;
 
-import java.sql.Time;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.LocalTime;
+
 import java.util.Date;
 import java.util.Scanner;
-import java.util.TimeZone;
+
 
 public class AddAppointment {
 
     public static void addAppointment() {
         try {
+
             ViewAllDoctor.ViewDoctor();
             Scanner sc = new Scanner(System.in);
             System.out.println("Fill the details: ");
@@ -29,17 +27,24 @@ public class AddAppointment {
             String dateStr = sc.next();
             System.out.println("Enter time (hh:mm:ss): ");
             String timeStr = sc.next();
-            Date sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss").parse(dateStr+" "+timeStr);
-            System.out.println("helloooo");
-            System.out.println(sdf);
-//            sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
-//            Date date = sdf.parse(dateStr);
-//            System.out.println(date);
-            String dateTime = sdf.toString();
-//              String dateTime="";
+            Date date = new SimpleDateFormat("dd-M-yyyy").parse(dateStr);
+            Date time = new SimpleDateFormat("hh:mm:ss").parse(timeStr);
+
+            String dateString = date.toString();
+            String timeString = time.toString();
+            String dateTime = dateString + timeString;
+            String[] parts = dateTime.split("\\s+");
+            String dayOfWeek = parts[0];
+            String month = parts[1];
+            String dayOfMonth = parts[2];
+            String year = parts[5];
+            String timeForm = parts[8];
+
+            String datePart = dayOfWeek + " " + month + " " + dayOfMonth + " " + year + " " +timeForm;
+
 
             String patientId = UserHandler.getUserId();
-            Appointment app = new Appointment(patientId, did, dateTime);
+            Appointment app = new Appointment(patientId, did, datePart);
             String message = AddAppointmentController.addAppointment(app);
             System.out.println(message);
         }

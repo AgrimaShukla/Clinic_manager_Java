@@ -3,6 +3,8 @@ package view.menu;
 import controllers.authentication.Signup;
 import view.admin.ViewAllDoctor;
 import view.customer.AddAppointment;
+import view.customer.DeleteAppointment;
+import view.customer.ViewAppointment;
 
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -12,7 +14,7 @@ public class CustomerMenu {
 
     public static void displayMenu() {
 
-        System.out.println("Choose one of the options:\n1) Doctors list\n2) Appointment Menu\n3) Exit");
+        System.out.println("Choose one of the options:\n1) Doctors list\n2) Appointment Details\n3) Exit");
 
         while(true) {
             System.out.println("Enter: ");
@@ -45,8 +47,10 @@ public class CustomerMenu {
                     AddAppointment.addAppointment();
                     break;
                 case 2:
+                    DeleteAppointment.deleteAppointment();
                     break;
                 case 3:
+                    ViewAppointment.ViewAppointment();
                     break;
                 case 4:
                     return;

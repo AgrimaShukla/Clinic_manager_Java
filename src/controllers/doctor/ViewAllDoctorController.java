@@ -27,8 +27,7 @@ public class ViewAllDoctorController {
             }
 
         } catch (Exception e) {
-            System.out.println("hellloooo");
-            System.out.println(e);
+            System.out.println("Some error occurred");
         }
     }
 }
